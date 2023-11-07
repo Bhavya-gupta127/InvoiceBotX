@@ -1,0 +1,36 @@
+Bhavya Gupta
+20ucs052@lnmiit.ac.in
+
+1. The `Main` class has a `main` method that serves as the entry point for the program. It calls the `createCsvFile` method to create a CSV file and then initializes an instance of `PDF_Invoice_Extractor`.
+
+2. Inside the `main` method of `Main`, there is a loop that iterates 100 times, calling the `main` method of `PDF_Invoice_Extractor` for each iteration. It passes the path of an output PDF file as an argument.
+
+3. The `createCsvFile` method is a private method that creates a CSV file with a specific header. It uses the `CSVWriter` class from the `opencsv` library to write the CSV content.
+
+4. The `PDF_Invoice_Extractor` class contains the logic for extracting text information from a PDF file and converting it to JSON.
+
+5. The `pdfToJson` method in `PDF_Invoice_Extractor` performs the extraction operation using Adobe PDF Services. It sets up the necessary credentials, creates an `ExecutionContext`, and initializes an `ExtractPDFOperation` instance.
+
+6. The `ExtractPDFOptions` are configured to extract text elements from the PDF file.
+
+7. The `execute` method is called on the `ExtractPDFOperation` instance to perform the extraction operation. The resulting extracted text is saved to an output file.
+
+8. The `createOutputFilePath` method generates a unique output file path using the current date and time.
+
+9. The `Utils` class is referenced in `PDF_Invoice_Extractor` to perform some additional operations on the extracted JSON data.
+
+10. The main method takes a command-line argument `zipFilePath`, which is the path to a zip file containing the JSON file.
+
+11. It extracts the JSON file from the zip folder using the `extractJsonFileFromZip` method.
+
+12. If the JSON file is successfully extracted, it uses the Jackson ObjectMapper to read the JSON data into a JsonNode object.
+
+13. The JSON structure is traversed using the `traverseJson` method, and the data is stored in a dataMap.
+
+14. The method `getData` is used to extract specific data based on provided keys and positions.
+
+15. Regular expressions are used to extract and manipulate specific data fields such as invoice number, issue date, and details.
+
+16. The extracted data is then processed and stored in variables for further use.
+
+17. Finally, the extracted data is pushed to a CSV file using the `addRowToCsv` method.
